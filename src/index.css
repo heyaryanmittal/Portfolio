@@ -124,8 +124,8 @@ body::after {
 
 .eyebrow-text {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  font-weight: 300;
+  font-size: 0.85rem; /* Increased from 0.75rem */
+  font-weight: 400;
   color: var(--accent);
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -153,9 +153,9 @@ body::after {
 .hero-tagline {
   font-family: 'DM Serif Display', serif;
   font-style: italic;
-  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem); /* Increased from 1rem base */
   color: var(--muted);
-  max-width: 420px;
+  max-width: 500px;
   line-height: 1.6;
   margin-bottom: 2.4rem;
 }
@@ -287,7 +287,7 @@ body::after {
 }
 
 .stat-label {
-  font-size: 0.7rem;
+  font-size: 0.85rem; /* Increased from 0.7rem */
   color: var(--muted);
   font-family: 'JetBrains Mono', monospace;
   letter-spacing: 0.1em;
@@ -640,8 +640,10 @@ section {
 .timeline-title {
   font-family: 'Syne', sans-serif;
   font-weight: 800;
-  font-size: 1.15rem;
-  margin-bottom: 0.3rem;
+  font-size: 1.3rem; /* Increased from 1.15rem */
+  color: #ffffff; /* Highlighted with pure white */
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
 }
 
 .timeline-sub {
@@ -651,9 +653,9 @@ section {
 }
 
 .timeline-desc {
-  font-size: 0.85rem;
-  color: var(--muted);
-  line-height: 1.7;
+  font-size: 1.05rem; /* Increased from 0.85rem */
+  color: #ffffff; /* Pure white */
+  line-height: 1.8;
 }
 
 /* ── PHILOSOPHY (REDESIGNED SOFT SKILLS) ── */
@@ -712,7 +714,7 @@ section {
 }
 
 .philo-desc {
-  font-size: 1rem;
+  font-size: 1.20rem; /* Increased from 1.05rem */
   color: var(--muted);
   line-height: 1.7;
 }
@@ -761,8 +763,8 @@ section {
 
 .life-cat {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  color: var(--muted);
+  font-size: 0.95rem; /* Increased from 0.75rem */
+  color: var(--accent); /* Yellow */
   text-transform: uppercase;
   letter-spacing: 0.2em;
 }
@@ -781,9 +783,9 @@ section {
 .status-24-7 { color: #fff; border-color: var(--text); }
 
 .life-text {
-  font-size: 1.25rem;
+  font-size: 1.35rem; /* Increased from 1.25rem */
   font-weight: 500;
-  color: var(--text);
+  color: #ffffff; /* Pure white */
   line-height: 1.5;
 }
 

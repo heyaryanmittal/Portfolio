@@ -341,7 +341,7 @@ const App = () => {
 <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
   <div className="section-label reveal">
     <span className="section-num">// 06</span>
-    <h2 className="section-title">Life System</h2>
+    <h2 className="section-title">Beyond Code</h2>
     <div className="section-divider"></div>
   </div>
 
@@ -423,7 +423,7 @@ const App = () => {
 
       {/* ═══ FOOTER ═══ */}
       <footer>
-        <div className="footer-left">© 2025 Aryan Mittal · All rights reserved</div>
+        <div className="footer-left">© 2026 Aryan Mittal · All rights reserved</div>
         <div className="footer-right">Built with <span>♥</span></div>
       </footer>
     </div>
