@@ -179,7 +179,7 @@ const App = () => {
             </div>
           </div>
           <div className="skill-tags">
-            {['React.js', 'Node.js', 'MongoDB', 'Express.js', 'MySQL', 'REST API', 'JAVA'].map((tag, i) => (
+            {['React.js', 'Node.js', 'MongoDB', 'Express.js', 'REST API', 'JAVA', 'Data Structures & Algorithms'].map((tag, i) => (
               <span key={i} className="tag">{tag}</span>
             ))}
           </div>
@@ -190,22 +190,22 @@ const App = () => {
       <section className="tech-section" style={{ padding: 0 }}>
         <div className="tech-marquee">
           <div className="marquee-track">
-            {['React.js', 'Node.js', 'Express.js', 'MongoDB', 'MySQL', 'PostgreSQL', 'Neo4j', 'Tailwind CSS', 'JWT · REST APIs', 'Git · GitHub', 'JAVA'].map((item, i) => (
+            {['React.js', 'Node.js', 'Express.js', 'MongoDB', 'MySQL', 'PostgreSQL', 'Tailwind CSS', 'JWT · REST APIs', 'Git · GitHub', 'JAVA'].map((item, i) => (
               <div key={i} className="marquee-item"><span className="dot"></span>{item}</div>
             ))}
             {/* repeat for loop */}
-            {['React.js', 'Node.js', 'Express.js', 'MongoDB', 'MySQL', 'PostgreSQL', 'Neo4j', 'Tailwind CSS', 'JWT · REST APIs', 'Git · GitHub', 'JAVA'].map((item, i) => (
+            {['React.js', 'Node.js', 'Express.js', 'MongoDB', 'MySQL', 'PostgreSQL', 'Tailwind CSS', 'JWT · REST APIs', 'Git · GitHub', 'JAVA'].map((item, i) => (
               <div key={`dup-${i}`} className="marquee-item"><span className="dot"></span>{item}</div>
             ))}
           </div>
         </div>
         <div className="tech-marquee">
           <div className="marquee-track reverse">
-            {['HTML5 · CSS3', 'JavaScript', 'Postman', 'VS Code', 'EJS Templates', 'RDBMS', 'Prompt Engineering', 'CSE · Chitkara University'].map((item, i) => (
+            {['HTML5 · CSS3', 'JavaScript', 'Postman', 'VS Code', 'Vercel', 'Netlify', 'Prompt Engineering', 'CSE · Chitkara University', 'AWS'].map((item, i) => (
               <div key={i} className="marquee-item"><span className="dot"></span>{item}</div>
             ))}
             {/* repeat for loop */}
-            {['HTML5 · CSS3', 'JavaScript', 'Postman', 'VS Code', 'EJS Templates', 'RDBMS', 'Prompt Engineering', 'CSE · Chitkara University'].map((item, i) => (
+            {['HTML5 · CSS3', 'JavaScript', 'Postman', 'VS Code', 'Vercel', 'Netlify', 'Prompt Engineering', 'CSE · Chitkara University', 'AWS'].map((item, i) => (
               <div key={`dup-${i}`} className="marquee-item"><span className="dot"></span>{item}</div>
             ))}
           </div>
@@ -228,10 +228,10 @@ const App = () => {
               I am a pre-final-year Computer Science student at <strong style={{ color: 'var(--text)' }}>Chitkara University, Himachal Pradesh</strong>, focused on the art of full-stack engineering. I don't just write code; I build digital systems that are scalable, maintainable, and user-centric.
             </p>
             <p className="about-body">
-              Currently, I'm deep-diving into <strong style={{ color: 'var(--accent2)' }}>Relational Database Design</strong> and <strong style={{ color: 'var(--accent2)' }}>Advanced JavaScript Patterns</strong>. I believe that a developer's strongest tool isn't their language of choice, but their ability to architect solutions to complex problems.
+              Currently, I'm deep-diving into <strong style={{ color: 'var(--accent2)' }}>Full Stack Projects</strong> and <strong style={{ color: 'var(--accent2)' }}>Advanced Data Structures & Algorithm Problems</strong>. I believe that a developer's strongest tool isn't their language of choice, but their ability to architect solutions to complex problems.
             </p>
             <p className="about-body">
-              I am actively seeking <strong style={{ color: 'var(--accent)' }}>Software Engineering Internships</strong> where I can contribute to high-impact projects and learn from industry veterans.
+              I am actively seeking <strong style={{ color: 'var(--accent)' }}>Software Development Engineer Role & Internships</strong> where I can contribute to high-impact projects and learn from industry veterans.
             </p>
           </div>
           <div className="skill-bars reveal" style={{ transitionDelay: '0.2s' }}>
@@ -289,54 +289,101 @@ const App = () => {
         </div>
       </section>
 
-      {/* ═══ ENGINEERING MINDSET (REDESIGNED SOFT SKILLS) ═══ */}
-      <section>
-        <div className="section-label reveal">
-          <span className="section-num">// 05</span>
-          <h2 className="section-title">Engineering Mindset</h2>
-          <div className="section-divider"></div>
-        </div>
-        <div className="philosophy-grid">
-          {[
-            { tag: 'Logic', icon: '🧠', title: 'Problem Logic', desc: 'Decoding complex requirements into simple, functional blocks of code.', delay: '0.0s' },
-            { tag: 'Flow', icon: '👥', title: 'Agile Sync', desc: 'Thriving in collaborative environments and maintaining clear documentation.', delay: '0.1s' },
-            { tag: 'Build', icon: '🛠️', title: 'System Growth', desc: 'Always thinking about how a feature will scale from 1 to 100,000 users.', delay: '0.2s' },
-            { tag: 'Vision', icon: '💡', title: 'Innovation', desc: 'Staying ahead of the curve by experimenting with new patterns and tools.', delay: '0.3s' },
-          ].map((philo, i) => (
-            <div key={i} className="philosophy-item reveal" style={{ transitionDelay: philo.delay }}>
-              <span className="philo-tag">{philo.tag}</span>
-              <div className="philo-head">
-                <div className="philo-icon">{philo.icon}</div>
-                <h3 className="philo-title">{philo.title}</h3>
-              </div>
-              <p className="philo-desc">{philo.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+{/* ═══ ENGINEERING MINDSET (REFINED) ═══ */}
+<section>
+  <div className="section-label reveal">
+    <span className="section-num">// 05</span>
+    <h2 className="section-title">Engineering Mindset</h2>
+    <div className="section-divider"></div>
+  </div>
 
-      {/* ═══ LIFESTYLE.EXE (REDESIGNED BEYOND CODE) ═══ */}
-      <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
-        <div className="section-label reveal">
-          <span className="section-num">// 06</span>
-          <h2 className="section-title">Outside the IDE</h2>
-          <div className="section-divider"></div>
+  <div className="philosophy-grid">
+    {[
+      {
+        icon: '🧠',
+        title: 'Structured Thinking',
+        desc: 'Breaking down complex problems into clear, scalable and maintainable solutions.',
+        delay: '0.0s'
+      },
+      {
+        icon: '🤝',
+        title: 'Collaborative Execution',
+        desc: 'Working seamlessly with teams while maintaining clarity in communication and code.',
+        delay: '0.1s'
+      },
+      {
+        icon: '📈',
+        title: 'Scalable Systems',
+        desc: 'Designing solutions that perform reliably from small use cases to large-scale systems.',
+        delay: '0.2s'
+      },
+      {
+        icon: '⚙️',
+        title: 'Engineering Craft',
+        desc: 'Focusing on clean architecture, performance, and long-term maintainability.',
+        delay: '0.3s'
+      },
+    ].map((philo, i) => (
+      <div key={i} className="philosophy-item reveal" style={{ transitionDelay: philo.delay }}>
+
+        <div className="philo-head">
+          <div className="philo-icon">{philo.icon}</div>
+          <h3 className="philo-title">{philo.title}</h3>
         </div>
-        <div className="lifestyle-grid">
-          {[
-            { cat: 'Exploring', text: 'Architecting AI Workflows & Prompt Engineering', status: 'ACTIVE', delay: '0s' },
-            { cat: 'Watching', text: 'Futuristic Sci-Fi & Psychological Thrillers', status: 'ON BREAK', delay: '0.1s' },
-            { cat: 'Capturing', text: 'Street Photography & Raw Urban Frames', status: 'WEEKLY', delay: '0.2s' },
-            { cat: 'Vibing', text: 'Lofi Beats & Timeless Old Hindi Classics', status: '24/7', delay: '0.3s' },
-          ].map((item, i) => (
-            <div key={i} className="lifestyle-item reveal" style={{ transitionDelay: item.delay }}>
-              <div className="life-cat">{item.cat}</div>
-              <div className="life-text">{item.text}</div>
-              <div className="life-status">{item.status}</div>
-            </div>
-          ))}
+
+        <p className="philo-desc">{philo.desc}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+{/* ═══ LIFE.SYSTEM (BEYOND CODE) ═══ */}
+<section style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+  <div className="section-label reveal">
+    <span className="section-num">// 06</span>
+    <h2 className="section-title">Life System</h2>
+    <div className="section-divider"></div>
+  </div>
+
+  <div className="lifestyle-grid">
+    {[
+      {
+        cat: 'Exploring',
+        text: 'Latest trends, new technologies, and digital architectures.',
+        delay: '0s'
+      },
+      {
+        cat: 'Watching',
+        text: 'Sci-fi worlds, mind-bending plots, and human psychology.',
+        delay: '0.1s'
+      },
+      {
+        cat: 'Capturing',
+        text: 'Real-life moments, raw emotions, and urban stories.',
+        delay: '0.2s'
+      },
+      {
+        cat: 'Listening',
+        text: 'Lo-fi focus beats and timeless Hindi classics.',
+        delay: '0.3s'
+      },
+    ].map((item, i) => (
+      <div key={i} className="lifestyle-item reveal" style={{ transitionDelay: item.delay }}>
+        
+        <div className="life-header">
+          <span className="life-cat">{item.cat}</span>
         </div>
-      </section>
+
+        <div className="life-text">{item.text}</div>
+
+        <div className="life-bar">
+          <div className="life-bar-fill"></div>
+        </div>
+
+      </div>
+    ))}
+  </div>
+</section>
 
       {/* ═══ CONTACT ═══ */}
       <section className="contact-section">
@@ -377,7 +424,7 @@ const App = () => {
       {/* ═══ FOOTER ═══ */}
       <footer>
         <div className="footer-left">© 2025 Aryan Mittal · All rights reserved</div>
-        <div className="footer-right">Built with <span>♥</span> · Chitkara University, Himachal Pradesh</div>
+        <div className="footer-right">Built with <span>♥</span></div>
       </footer>
     </div>
   );

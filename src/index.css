@@ -730,54 +730,85 @@ section {
 
 /* ── LIFESTYLE (REDESIGNED BEYOND CODE) ── */
 .lifestyle-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
 }
 
 .lifestyle-item {
-  display: grid;
-  grid-template-columns: 100px 1fr 120px;
-  align-items: center;
-  padding: 1.8rem 2.5rem;
   background: var(--surface2);
   border: 1px solid var(--border);
-  transition: all 0.3s;
-  cursor: none;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
 }
 
 .lifestyle-item:hover {
   background: var(--surface);
   border-color: var(--accent2);
-  transform: scale(1.01);
+  transform: translateY(-8px);
+}
+
+.life-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .life-cat {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.75rem;
-  color: var(--accent2);
+  color: var(--muted);
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-}
-
-.life-text {
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: var(--text);
-  padding: 0 2rem;
+  letter-spacing: 0.2em;
 }
 
 .life-status {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.7rem;
-  color: var(--muted);
-  text-align: right;
-  border-left: 1px solid var(--border);
-  padding-left: 1.5rem;
+  font-size: 0.65rem;
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
 }
 
-.lifestyle-item:hover .life-status {
-  color: var(--accent);
+.status-active { color: var(--accent2); border-color: var(--accent2); }
+.status-paused { color: var(--accent3); border-color: var(--accent3); }
+.status-weekly { color: var(--accent); border-color: var(--accent); }
+.status-24-7 { color: #fff; border-color: var(--text); }
+
+.life-text {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.life-bar {
+  height: 4px;
+  background: var(--surface2);
+  position: relative;
+  overflow: hidden;
+  margin-top: auto;
+}
+
+.life-bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, var(--surface2), var(--accent2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lifestyle-item.visible .life-bar-fill {
+  transform: scaleX(0.7); /* Progress bar effect */
 }
 
 /* ── CONTACT ── */
