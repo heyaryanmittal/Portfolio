@@ -21,6 +21,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -100,12 +101,82 @@ body::after {
   font-size: clamp(180px, 30vw, 420px);
   color: rgba(232, 255, 71, 0.03);
   right: -2vw;
-  top: 50%;
+  top: 55%; /* Adjusted for navbar */
   transform: translateY(-50%);
   pointer-events: none;
   letter-spacing: -0.05em;
   user-select: none;
   white-space: nowrap;
+}
+
+/* ── NAVBAR (FLOATING GLASS ISLAND) ── */
+.navbar {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  max-width: 90vw;
+  height: auto;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8rem 2.5rem;
+  background: rgba(14, 17, 24, 0.45);
+  backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 100px; /* Modern Rounded Pill */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar:hover {
+  background: rgba(14, 17, 24, 0.6);
+  border-color: rgba(232, 255, 71, 0.2);
+  transform: translateX(-50%) translateY(-2px);
+}
+
+.nav-logo {
+  display: none; /* Removed logo for the centered island look */
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  position: relative;
+  cursor: none;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  text-shadow: 0 0 10px rgba(232, 255, 71, 0.3);
+}
+
+/* Active indicator dot instead of underline */
+.nav-links a:hover::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent);
 }
 
 .hero-eyebrow {
@@ -933,9 +1004,17 @@ footer {
 @media (max-width: 1024px) {
   .hero {
     grid-template-columns: 1fr;
-    padding: 10rem 8vw 6rem;
+    padding: 12rem 8vw 6rem; /* Increased top padding for navbar */
     text-align: center;
     gap: 3rem;
+  }
+
+  .navbar {
+    height: 70px;
+  }
+
+  .nav-links {
+    display: none; /* Hide full links on mobile for now, or could use a burger */
   }
 
   .hero-bg-number {

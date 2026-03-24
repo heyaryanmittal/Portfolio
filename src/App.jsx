@@ -116,6 +116,21 @@ const ProjectCard = ({ title, tech, image, github, live }) => {
   );
 };
 
+const Navbar = () => {
+  return (
+    <nav className="navbar">
+      <div className="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#beyond">More</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  );
+};
+
 const App = () => {
   useReveal();
 
@@ -131,9 +146,10 @@ const App = () => {
   return (
     <div className="portfolio">
       <CustomCursor />
+      <Navbar />
 
       {/* ═══ HERO ═══ */}
-      <section className="hero">
+      <section id="home" className="hero">
         <div className="hero-bg-number">01</div>
         <div className="hero-left">
           <div className="hero-eyebrow">
@@ -271,7 +287,7 @@ const App = () => {
       </section>
 
       {/* ═══ EDUCATION ═══ */}
-      <section style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+      <section id="education" style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
         <div className="section-label reveal">
           <span className="section-num">// 04</span>
           <h2 className="section-title">Education</h2>
@@ -338,7 +354,7 @@ const App = () => {
 </section>
 
 {/* ═══ LIFE.SYSTEM (BEYOND CODE) ═══ */}
-<section style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+<section id="beyond" style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
   <div className="section-label reveal">
     <span className="section-num">// 06</span>
     <h2 className="section-title">Beyond Code</h2>
@@ -386,7 +402,7 @@ const App = () => {
 </section>
 
       {/* ═══ CONTACT ═══ */}
-      <section className="contact-section">
+      <section id="contact" className="contact-section">
         <div className="contact-inner">
           <div className="reveal">
             <h2 className="contact-headline">
