@@ -135,12 +135,12 @@ const App = () => {
   useReveal();
 
   const projects = [
-    { title: 'DevFlow', tech: ['MERN', 'Redux', 'JWT'], image: '/assets/devflow.png', github: 'https://github.com/ksingla1885', live: '#' },
-    { title: 'Pulse Chat', tech: ['Next.js', 'Socket.io', 'Node.js'], image: '/assets/pulse.png', github: 'https://github.com/ksingla1885', live: '#' },
-    { title: 'EcoTrack', tech: ['React', 'MongoDB', 'Chart.js'], image: '/assets/ecotrack.png', github: 'https://github.com/ksingla1885', live: '#' },
-    { title: 'Nexus Hub', tech: ['MySQL', 'Express', 'Auth0'], image: '/assets/nexus.png', github: 'https://github.com/ksingla1885', live: '#' },
-    { title: 'Visionary', tech: ['MERN', 'Cloudinary', 'OpenAI'], image: '/assets/visionary.png', github: 'https://github.com/ksingla1885', live: '#' },
-    { title: 'SwiftShop', tech: ['Next.js', 'Stripe', 'Tailwind'], image: '/assets/swiftshop.png', github: 'https://github.com/ksingla1885', live: '#' },
+    { title: 'DevFlow', tech: ['MERN', 'Redux', 'JWT'], image: '/assets/devflow.png', github: 'https://github.com/heyaryanmittal/DevFlow', live: '#' },
+    { title: 'Pulse Chat', tech: ['Next.js', 'Socket.io', 'Node.js'], image: '/assets/pulse.png', github: 'https://github.com/heyaryanmittal/PulseChat', live: '#' },
+    { title: 'EcoTrack', tech: ['React', 'MongoDB', 'Chart.js'], image: '/assets/ecotrack.png', github: 'https://github.com/heyaryanmittal/EcoTrack', live: '#' },
+    { title: 'Nexus Hub', tech: ['MySQL', 'Express', 'Auth0'], image: '/assets/nexus.png', github: 'https://github.com/heyaryanmittal/NexusHub', live: '#' },
+    { title: 'Visionary', tech: ['MERN', 'Cloudinary', 'OpenAI'], image: '/assets/visionary.png', github: 'https://github.com/heyaryanmittal/Visionary', live: '#' },
+    { title: 'SwiftShop', tech: ['Next.js', 'Stripe', 'Tailwind'], image: '/assets/swiftshop.png', github: 'https://github.com/heyaryanmittal/SwiftShop', live: '#' },
   ];
 
   return (
