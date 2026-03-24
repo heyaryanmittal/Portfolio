@@ -135,12 +135,12 @@ const App = () => {
   useReveal();
 
   const projects = [
-    { title: 'DevFlow', tech: ['MERN', 'Redux', 'JWT'], image: '/assets/devflow.png', github: 'https://github.com/heyaryanmittal/DevFlow', live: '#' },
-    { title: 'Pulse Chat', tech: ['Next.js', 'Socket.io', 'Node.js'], image: '/assets/pulse.png', github: 'https://github.com/heyaryanmittal/PulseChat', live: '#' },
-    { title: 'EcoTrack', tech: ['React', 'MongoDB', 'Chart.js'], image: '/assets/ecotrack.png', github: 'https://github.com/heyaryanmittal/EcoTrack', live: '#' },
-    { title: 'Nexus Hub', tech: ['MySQL', 'Express', 'Auth0'], image: '/assets/nexus.png', github: 'https://github.com/heyaryanmittal/NexusHub', live: '#' },
-    { title: 'Visionary', tech: ['MERN', 'Cloudinary', 'OpenAI'], image: '/assets/visionary.png', github: 'https://github.com/heyaryanmittal/Visionary', live: '#' },
-    { title: 'SwiftShop', tech: ['Next.js', 'Stripe', 'Tailwind'], image: '/assets/swiftshop.png', github: 'https://github.com/heyaryanmittal/SwiftShop', live: '#' },
+    { title: 'Bachat Saathi', tech: ['MERN', 'JWT', 'Nodemailer'], image: '/assets/bachatsaathi.png', github: 'https://github.com/heyaryanmittal/Bachat_Saathi', live: 'https://bachat-saathi.vercel.app/' },
+    { title: 'MediCore', tech: ['MERN', 'Tailwind', 'Groq', 'Cloudinary'], image: '/assets/medicore.png', github: 'https://github.com/heyaryanmittal/MediCore', live: 'https://medicore-hmss.vercel.app/' },
+    { title: 'FitGenix', tech: ['MERN', 'YouTube Search API', 'JWT'], image: '/assets/fitgenix.png', github: 'https://github.com/heyaryanmittal/FitGenix', live: 'https://fit-genix-app.vercel.app/' },
+    { title: 'CryptoFlux', tech: ['MERN', 'Chart.js', 'CoinGecko API'], image: '/assets/cryptoflux.png', github: 'https://github.com/heyaryanmittal/CryptoFlux', live: 'https://cryptoflux-cf.vercel.app/' },
+    { title: 'MartNexus', tech: ['MERN', 'Supabase', 'PostgreSQL'], image: '/assets/martnexus.png', github: 'https://github.com/heyaryanmittal/MartNexus', live: 'https://mart-nexus.vercel.app/' },
+    { title: 'Weather App', tech: ['React.js', 'OpenWeatherMap API', 'Vanilla CSS'], image: '/assets/weatherapp.png', github: 'https://github.com/heyaryanmittal/Weather-App', live: 'https://weather-app-aryanm.netlify.app/' },
   ];
 
   return (
@@ -305,101 +305,101 @@ const App = () => {
         </div>
       </section>
 
-{/* ═══ ENGINEERING MINDSET (REFINED) ═══ */}
-<section>
-  <div className="section-label reveal">
-    <span className="section-num">// 05</span>
-    <h2 className="section-title">Engineering Mindset</h2>
-    <div className="section-divider"></div>
-  </div>
-
-  <div className="philosophy-grid">
-    {[
-      {
-        icon: '🧠',
-        title: 'Structured Thinking',
-        desc: 'Breaking down complex problems into clear, scalable and maintainable solutions.',
-        delay: '0.0s'
-      },
-      {
-        icon: '🤝',
-        title: 'Collaborative Execution',
-        desc: 'Working seamlessly with teams while maintaining clarity in communication and code.',
-        delay: '0.1s'
-      },
-      {
-        icon: '📈',
-        title: 'Scalable Systems',
-        desc: 'Designing solutions that perform reliably from small use cases to large-scale systems.',
-        delay: '0.2s'
-      },
-      {
-        icon: '⚙️',
-        title: 'Engineering Craft',
-        desc: 'Focusing on clean architecture, performance, and long-term maintainability.',
-        delay: '0.3s'
-      },
-    ].map((philo, i) => (
-      <div key={i} className="philosophy-item reveal" style={{ transitionDelay: philo.delay }}>
-
-        <div className="philo-head">
-          <div className="philo-icon">{philo.icon}</div>
-          <h3 className="philo-title">{philo.title}</h3>
+      {/* ═══ ENGINEERING MINDSET (REFINED) ═══ */}
+      <section>
+        <div className="section-label reveal">
+          <span className="section-num">// 05</span>
+          <h2 className="section-title">Engineering Mindset</h2>
+          <div className="section-divider"></div>
         </div>
 
-        <p className="philo-desc">{philo.desc}</p>
-      </div>
-    ))}
-  </div>
-</section>
+        <div className="philosophy-grid">
+          {[
+            {
+              icon: '🧠',
+              title: 'Structured Thinking',
+              desc: 'Breaking down complex problems into clear, scalable and maintainable solutions.',
+              delay: '0.0s'
+            },
+            {
+              icon: '🤝',
+              title: 'Collaborative Execution',
+              desc: 'Working seamlessly with teams while maintaining clarity in communication and code.',
+              delay: '0.1s'
+            },
+            {
+              icon: '📈',
+              title: 'Scalable Systems',
+              desc: 'Designing solutions that perform reliably from small use cases to large-scale systems.',
+              delay: '0.2s'
+            },
+            {
+              icon: '⚙️',
+              title: 'Engineering Craft',
+              desc: 'Focusing on clean architecture, performance, and long-term maintainability.',
+              delay: '0.3s'
+            },
+          ].map((philo, i) => (
+            <div key={i} className="philosophy-item reveal" style={{ transitionDelay: philo.delay }}>
 
-{/* ═══ LIFE.SYSTEM (BEYOND CODE) ═══ */}
-<section id="beyond" style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
-  <div className="section-label reveal">
-    <span className="section-num">// 06</span>
-    <h2 className="section-title">Beyond Code</h2>
-    <div className="section-divider"></div>
-  </div>
+              <div className="philo-head">
+                <div className="philo-icon">{philo.icon}</div>
+                <h3 className="philo-title">{philo.title}</h3>
+              </div>
 
-  <div className="lifestyle-grid">
-    {[
-      {
-        cat: 'Exploring',
-        text: 'Latest trends, new technologies, and digital architectures.',
-        delay: '0s'
-      },
-      {
-        cat: 'Watching',
-        text: 'Sci-fi worlds, mind-bending plots, and human psychology.',
-        delay: '0.1s'
-      },
-      {
-        cat: 'Capturing',
-        text: 'Real-life moments, raw emotions, and urban stories.',
-        delay: '0.2s'
-      },
-      {
-        cat: 'Listening',
-        text: 'Lo-fi focus beats and timeless Hindi classics.',
-        delay: '0.3s'
-      },
-    ].map((item, i) => (
-      <div key={i} className="lifestyle-item reveal" style={{ transitionDelay: item.delay }}>
-        
-        <div className="life-header">
-          <span className="life-cat">{item.cat}</span>
+              <p className="philo-desc">{philo.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ═══ LIFE.SYSTEM (BEYOND CODE) ═══ */}
+      <section id="beyond" style={{ background: 'var(--surface)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+        <div className="section-label reveal">
+          <span className="section-num">// 06</span>
+          <h2 className="section-title">Beyond Code</h2>
+          <div className="section-divider"></div>
         </div>
 
-        <div className="life-text">{item.text}</div>
+        <div className="lifestyle-grid">
+          {[
+            {
+              cat: 'Exploring',
+              text: 'Latest trends, new technologies, and digital architectures.',
+              delay: '0s'
+            },
+            {
+              cat: 'Watching',
+              text: 'Sci-fi worlds, mind-bending plots, and human psychology.',
+              delay: '0.1s'
+            },
+            {
+              cat: 'Capturing',
+              text: 'Real-life moments, raw emotions, and urban stories.',
+              delay: '0.2s'
+            },
+            {
+              cat: 'Listening',
+              text: 'Lo-fi focus beats and timeless Hindi classics.',
+              delay: '0.3s'
+            },
+          ].map((item, i) => (
+            <div key={i} className="lifestyle-item reveal" style={{ transitionDelay: item.delay }}>
 
-        <div className="life-bar">
-          <div className="life-bar-fill"></div>
+              <div className="life-header">
+                <span className="life-cat">{item.cat}</span>
+              </div>
+
+              <div className="life-text">{item.text}</div>
+
+              <div className="life-bar">
+                <div className="life-bar-fill"></div>
+              </div>
+
+            </div>
+          ))}
         </div>
-
-      </div>
-    ))}
-  </div>
-</section>
+      </section>
 
       {/* ═══ CONTACT ═══ */}
       <section id="contact" className="contact-section">

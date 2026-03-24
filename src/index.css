@@ -574,7 +574,7 @@ section {
 /* ── PROJECTS ── */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* Back to 3 columns */
   gap: 2rem;
 }
 
@@ -595,15 +595,17 @@ section {
 
 .project-image-wrapper {
   position: relative;
-  aspect-ratio: 16/10;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
+  background: var(--surface2);
 }
 
 .project-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  object-position: top center; /* Prioritize the site header/branding */
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project-card:hover .project-image {
