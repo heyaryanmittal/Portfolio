@@ -1,7 +1,10 @@
 {
-  "name": "final-portfolio",
-  "private": true,
-  "version": "0.0.0",
+  "name": "aryan-mittal-portfolio",
+  "version": "1.0.0",
+  "description": "Premium Full-Stack Developer Portfolio",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "type": "module",
   "scripts": {
     "dev": "nodemon --exec vite",
