@@ -137,9 +137,7 @@ body::after {
   transform: translateX(-50%) translateY(-2px);
 }
 
-.nav-logo {
-  display: none; /* Removed logo for the centered island look */
-}
+
 
 .nav-links {
   display: flex;
@@ -1004,26 +1002,51 @@ footer {
   transform: translateY(0);
 }
 
-/* ── MOBILE RESPONSIVENESS ── */
+/* ── MOBILE RESPONSIVENESS (REFINED) ── */
 @media (max-width: 1024px) {
   .hero {
     grid-template-columns: 1fr;
-    padding: 12rem 8vw 6rem; /* Increased top padding for navbar */
+    padding: 12rem 6vw 4rem;
     text-align: center;
     gap: 3rem;
   }
 
   .navbar {
-    height: 70px;
+    width: 90vw;
+    padding: 0.8rem 1.5rem;
+    border-radius: 100px;
+    justify-content: center;
+    flex-direction: row;
+    height: auto;
   }
 
   .nav-links {
-    display: none; /* Hide full links on mobile for now, or could use a burger */
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 1.5rem;
+    padding: 0;
+    overflow-x: auto;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+
+  .nav-links a {
+    white-space: nowrap;
+    padding: 0;
+    font-size: 0.72rem;
   }
 
   .hero-bg-number {
-    top: 15%;
-    font-size: 25vw;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    font-size: 35vw;
+    opacity: 0.02;
   }
 
   .hero-eyebrow {
@@ -1039,9 +1062,14 @@ footer {
   }
 
   .hero-card {
-    max-width: 500px;
+    max-width: 100%;
     margin: 0 auto;
-    animation: none; /* Disable animation on tablets/mobile for performance */
+    padding: 1.5rem;
+    animation: none;
+  }
+
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .about-grid {
@@ -1111,39 +1139,42 @@ footer {
   }
 
   .lifestyle-item {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
     padding: 1.5rem;
-    text-align: center;
   }
 
-  .life-status {
-    border-left: none;
-    padding-left: 0;
-    text-align: center;
+  .about-quote {
+    padding-left: 2rem;
+  }
+
+  .about-quote::before {
+    font-size: 4rem;
+  }
+
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 480px) {
   section {
-    padding: 4rem 6vw;
+    padding: 4rem 5vw;
   }
 
   .hero {
     padding-top: 8rem;
   }
 
+  .hero-cta {
+    flex-direction: column;
+  }
+
   .hero-cta .btn {
     width: 100%;
     justify-content: center;
-  }
-
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .stat-grid {
-    grid-template-columns: 1fr;
   }
 
   .beyond-grid {
@@ -1158,6 +1189,7 @@ footer {
     flex-direction: column;
     text-align: center;
     gap: 1.5rem;
+    padding: 2rem 5vw;
   }
 }
 

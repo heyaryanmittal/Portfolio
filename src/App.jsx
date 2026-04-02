@@ -323,7 +323,7 @@ const App = () => {
             },
             {
               icon: '🤝',
-              title: 'Collaborative Execution',
+              title: 'Team Execution',
               desc: 'Working seamlessly with teams while maintaining clarity in communication and code.',
               delay: '0.1s'
             },
