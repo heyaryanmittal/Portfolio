@@ -131,6 +131,8 @@ const Navbar = () => {
   );
 };
 
+import VisitorLogger from './hooks/visit_log';
+
 const App = () => {
   useReveal();
 
@@ -145,7 +147,10 @@ const App = () => {
 
   return (
     <div className="portfolio">
+      <VisitorLogger />
       <CustomCursor />
+
+
       <Navbar />
 
       {/* ═══ HERO ═══ */}
