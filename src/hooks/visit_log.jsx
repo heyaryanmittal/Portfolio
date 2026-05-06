@@ -165,17 +165,13 @@ export default function VisitorLogger() {
           }]
         }
 
-        const webhookUrl = import.meta.env.VITE_DISCORD_WEBHOOK || "https://discord.com/api/webhooks/1495473055533891749/A7siL8MqyCGbAyND67Om6x9ZaWn1o2Cmtt010WQjtrmygeHdO937x2lm1fPmftWkdKQ8"
-        
-        if (webhookUrl) {
-          await fetch(webhookUrl, {
+        await fetch('/api/log-visit', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(message)
           })
           
           sessionStorage.setItem('visited_logged', 'true')
-        }
 
       } catch (error) {
         console.error('Logger Error:', error)
