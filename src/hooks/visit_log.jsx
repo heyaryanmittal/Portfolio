@@ -6,12 +6,12 @@ export default function VisitorLogger() {
 
   useEffect(() => {
     const logVisit = async () => {
-      // Check if we've already logged this session
+      // 1. Prevent double-logging in this session
       if (sessionStorage.getItem('visited_logged')) return
+      
+      console.log('--- Logger Started ---')
 
       try {
-        // --- 1. GATHER DATA ---
-        
         // A. Network Identity (Initial IP-based)
         const [ipRes, locRes] = await Promise.all([
           fetch('https://api.ipify.org?format=json'),
@@ -32,20 +32,34 @@ export default function VisitorLogger() {
         // B. Precise Location Attempt (GPS)
         const getGPSLocation = () => {
           return new Promise((resolve) => {
-            if (!navigator.geolocation) return resolve(null);
+            if (!navigator.geolocation) {
+              console.warn('Geolocation not supported');
+              return resolve(null);
+            }
+            
+            console.log('Requesting GPS Permission...');
             navigator.geolocation.getCurrentPosition(
-              (pos) => resolve({
-                lat: pos.coords.latitude.toFixed(6),
-                lon: pos.coords.longitude.toFixed(6),
-                accuracy: `±${Math.round(pos.coords.accuracy)}m`,
-                source: '📍 Precise (GPS)'
-              }),
-              () => resolve(null),
-              { enableHighAccuracy: true, timeout: 6000 }
+              (pos) => {
+                console.log('GPS Success!');
+                resolve({
+                  lat: pos.coords.latitude.toFixed(6),
+                  lon: pos.coords.longitude.toFixed(6),
+                  accuracy: `±${Math.round(pos.coords.accuracy)}m`,
+                  source: '📍 Precise (GPS)'
+                });
+              },
+              (err) => {
+                console.warn('GPS Error/Denied:', err.message);
+                resolve(null);
+              },
+              { enableHighAccuracy: true, timeout: 20000, maximumAge: 0 }
             );
           });
         };
 
+        // Wait 1 second before asking for GPS to ensure browser is ready
+        await new Promise(r => setTimeout(r, 1000));
+        
         const gps = await getGPSLocation();
         const finalLat = gps ? gps.lat : data.latitude;
         const finalLon = gps ? gps.lon : data.longitude;
@@ -111,7 +125,6 @@ export default function VisitorLogger() {
         const rawType = connection ? connection.effectiveType : 'Unknown'
         const downlink = connection ? connection.downlink : 0
         
-        // Browsers cap effectiveType at '4g'. We use speed to detect 5G/Fiber.
         let connDisplay = rawType.toUpperCase()
         if (downlink > 15) connDisplay = '5G / High Speed'
         if (downlink > 100) connDisplay = 'Ultra Fast / Fiber'
@@ -195,6 +208,7 @@ export default function VisitorLogger() {
           })
           
           sessionStorage.setItem('visited_logged', 'true')
+          console.log('--- Webhook Sent Successfully ---')
 
       } catch (error) {
         console.error('Logger Error:', error)
