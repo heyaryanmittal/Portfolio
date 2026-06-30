@@ -159,7 +159,7 @@ const App = () => {
         <div className="hero-left">
           <div className="hero-eyebrow">
             <div className="eyebrow-line"></div>
-            <span className="eyebrow-text">Full-Stack Developer · Pre-Final Year</span>
+            <span className="eyebrow-text">Full-Stack Developer · Final Year</span>
           </div>
           <h1 className="hero-name">
             <span className="filled">Aryan</span>
@@ -246,7 +246,7 @@ const App = () => {
               Good design is invisible, great architecture is resilient.
             </blockquote>
             <p className="about-body">
-              I am a pre-final-year Computer Science student at <strong style={{ color: 'var(--text)' }}>Chitkara University, Himachal Pradesh</strong>, focused on the art of full-stack engineering. I don't just write code; I build digital systems that are scalable, maintainable, and user-centric.
+              I am a final-year Computer Science student at <strong style={{ color: 'var(--text)' }}>Chitkara University, Himachal Pradesh</strong>, focused on the art of full-stack engineering. I don't just write code; I build digital systems that are scalable, maintainable, and user-centric.
             </p>
             <p className="about-body">
               Currently, I'm deep-diving into <strong style={{ color: 'var(--accent2)' }}>Full Stack Projects</strong> and <strong style={{ color: 'var(--accent2)' }}>Advanced Data Structures & Algorithm Problems</strong>. I believe that a developer's strongest tool isn't their language of choice, but their ability to architect solutions to complex problems.
@@ -257,11 +257,11 @@ const App = () => {
           </div>
           <div className="skill-bars reveal" style={{ transitionDelay: '0.2s' }}>
             {[
-              { name: 'FRONTEND ARCHITECTURE', pct: 90, delay: '0.3s' },
-              { name: 'BACKEND SYSTEMS (Node/Express)', pct: 85, delay: '0.5s' },
-              { name: 'DATABASE SCHEMA DESIGN', pct: 78, delay: '0.7s' },
-              { name: 'RESTFUL API ENGINEERING', pct: 88, delay: '0.9s' },
-              { name: 'JAVA CORE & ALGORITHMS', pct: 80, delay: '1.1s' },
+              { name: 'FRONTEND ARCHITECTURE', pct: 96, delay: '0.3s' },
+              { name: 'BACKEND SYSTEMS (Node/Express)', pct: 90, delay: '0.5s' },
+              { name: 'DATABASE SCHEMA DESIGN', pct: 92, delay: '0.7s' },
+              { name: 'RESTFUL API ENGINEERING', pct: 94, delay: '0.9s' },
+              { name: 'JAVA CORE & ALGORITHMS', pct: 85, delay: '1.1s' },
             ].map((skill, i) => (
               <div key={i} className="skill-bar-item" style={{ marginBottom: '1.4rem' }}>
                 <div className="skill-bar-header">
@@ -428,6 +428,7 @@ const App = () => {
               { icon: '✉️', label: 'EMAIL', value: 'heyaryanmittal@gmail.com', link: 'mailto:heyaryanmittal@gmail.com' },
               { icon: '✉️', label: 'EMAIL (ALT)', value: 'aryanmittal25496@gmail.com', link: 'mailto:aryanmittal25496@gmail.com' },
               { icon: '🐙', label: 'GITHUB', value: 'heyaryanmittal', link: 'https://github.com/heyaryanmittal' },
+              { icon: '🌳', label: 'LINKTREE', value: 'heyaryanmittal', link: 'https://linktr.ee/heyaryanmittal' },
             ].map((link, i) => (
               <a key={i} href={link.link} target="_blank" className="contact-link">
                 <span className="link-icon">{link.icon}</span>
