@@ -183,12 +183,12 @@ const App = () => {
           </div>
           <div className="stat-grid">
             <div className="stat-item">
-              <div className="stat-num">2+</div>
+              <div className="stat-num">3+</div>
               <div className="stat-label">YEARS CODING</div>
             </div>
             <div className="stat-item">
-              <div className="stat-num">10+</div>
-              <div className="stat-label">TECH TOOLS</div>
+              <div className="stat-num">15+</div>
+              <div className="stat-label">TECHNOLOGIES</div>
             </div>
             <div className="stat-item">
               <div className="stat-num">5+</div>
